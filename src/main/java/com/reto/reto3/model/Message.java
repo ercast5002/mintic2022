@@ -11,17 +11,16 @@ public class Message {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idMessage;
-
-    private String messegeText;
+    private String messageText;
 
     @ManyToOne
     @JoinColumn(name = "partyroomId")
-    @JsonIgnoreProperties({"message", "reservations"})
+    @JsonIgnoreProperties({"messages", "reservations"})
     private Partyroom partyroom;
 
     @ManyToOne
     @JoinColumn(name = "clientId")
-    @JsonIgnoreProperties({"message", "reservations"})
+    @JsonIgnoreProperties({"messages", "reservations"})
     private Client client;
 
     public Integer getIdMessage() {
@@ -32,12 +31,12 @@ public class Message {
         this.idMessage = idMessage;
     }
 
-    public String getMessegeText() {
-        return messegeText;
+    public String getMessageText() {
+        return messageText;
     }
 
-    public void setMessegeText(String messegeText) {
-        this.messegeText = messegeText;
+    public void setMessageText(String messageText) {
+        this.messageText = messageText;
     }
 
     public Partyroom getPartyroom() {
@@ -56,6 +55,7 @@ public class Message {
         this.client = client;
     }
 
+    
     
     
 }

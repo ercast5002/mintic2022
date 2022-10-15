@@ -21,8 +21,8 @@ public class ReservationService {
 
     }
 
-    public Optional<Reservation> getReservation(int id) {
-        return reservationRepository.getReservation(id);
+    public Optional<Reservation> getIdReservation(int id) {
+        return reservationRepository.getIdReservation(id);
     }
 
     // Guardas datos
@@ -31,7 +31,7 @@ public class ReservationService {
             return reservationRepository.save(reservation);
 
         } else {
-            Optional<Reservation> reservationEncontrado = getReservation(reservation.getIdReservation());
+            Optional<Reservation> reservationEncontrado = getIdReservation(reservation.getIdReservation());
             if (reservationEncontrado.isEmpty()) {
                 return reservationRepository.save(reservation);
 
@@ -44,10 +44,10 @@ public class ReservationService {
     public Reservation update(Reservation reservation){
 
         if(reservation.getIdReservation() != null){
-            Optional<Reservation> reservationEncontrado = getReservation(reservation.getIdReservation());
+            Optional<Reservation> reservationEncontrado = getIdReservation(reservation.getIdReservation());
             if(!reservationEncontrado.isEmpty()){
-                if(reservation.getStarDate() != null){
-                    reservationEncontrado.get().setStarDate(reservation.getStarDate());
+                if(reservation.getStartDate() != null){
+                    reservationEncontrado.get().setStartDate(reservation.getStartDate());
                 }
                 if(reservation.getDevolutionDate()!= null){
                     reservationEncontrado.get().setDevolutionDate(reservation.getDevolutionDate());
@@ -64,7 +64,7 @@ public class ReservationService {
     }   
     
     public boolean delete(int id){
-        Boolean respuesta = getReservation(id).map(elemento ->{
+        Boolean respuesta = getIdReservation(id).map(elemento ->{
             reservationRepository.delete(elemento);
             return true;
         }).orElse(false);

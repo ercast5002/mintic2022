@@ -18,7 +18,9 @@ import org.springframework.web.bind.annotation.RestController;
 import com.reto.reto3.Service.ReservationService;
 import com.reto.reto3.model.Reservation;
 
-@CrossOrigin(origins = "*", methods = {RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT, RequestMethod.DELETE})
+@CrossOrigin(origins = "*", methods = { RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT,
+        RequestMethod.DELETE })
+
 @RestController
 @RequestMapping("/api/Reservation")
 public class ReservationController {
@@ -27,22 +29,21 @@ public class ReservationController {
     private ReservationService reservationService;
 
     @GetMapping("/all")
-            public List<Reservation> getAll() {
-            return reservationService.getAll();
-            
-        }
+    public List<Reservation> getAll() {
+        return reservationService.getAll();
+
+    }
 
     @GetMapping("/{id}")
-           public Optional<Reservation> getReservation (@PathVariable("id") int id){
-           return reservationService.getReservation(id);
-}
+    public Optional<Reservation> getIdReservation(@PathVariable("id") int id) {
+        return reservationService.getIdReservation(id);
+    }
 
-@PostMapping("/save")
-@ResponseStatus(HttpStatus.CREATED)
-           public Reservation save (@RequestBody Reservation reservation){
-           return reservationService.save(reservation);
+    @PostMapping("/save")
+    @ResponseStatus(HttpStatus.CREATED)
+    public Reservation save(@RequestBody Reservation reservation) {
+        return reservationService.save(reservation);
 
+    }
 
-}
-    
 }

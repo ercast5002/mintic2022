@@ -18,7 +18,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.reto.reto3.Service.MessageService;
 import com.reto.reto3.model.Message;
 
-@CrossOrigin(origins = "*", methods = {RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT, RequestMethod.DELETE})
+@CrossOrigin(origins = "*", methods = { RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT,
+        RequestMethod.DELETE })
 @RestController
 @RequestMapping("/api/Message")
 public class MessageController {
@@ -27,22 +28,21 @@ public class MessageController {
     private MessageService messageService;
 
     @GetMapping("/all")
-            public List<Message> getAll() {
-            return messageService.getAll();
-            
-        }
+    public List<Message> getAll() {
+        return messageService.getAll();
+
+    }
 
     @GetMapping("/{id}")
-           public Optional<Message> getMessage (@PathVariable("id") int id){
-           return messageService.getMessage(id);
-}
+    public Optional<Message> getMessage(@PathVariable("id") int id) {
+        return messageService.getMessage(id);
+    }
 
-@PostMapping("/save")
-@ResponseStatus(HttpStatus.CREATED)
-           public Message save (@RequestBody Message message){
-           return messageService.save(message);
+    @PostMapping("/save")
+    @ResponseStatus(HttpStatus.CREATED)
+    public Message save(@RequestBody Message message) {
+        return messageService.save(message);
 
+    }
 
-}
-    
 }

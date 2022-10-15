@@ -45,8 +45,8 @@ public class MessageService {
         if(message.getIdMessage() !=null){
             Optional<Message> messageEncontrado = messageReposytory.getMessage(message.getIdMessage());
             if(!messageEncontrado.isEmpty()){
-                if(message.getMessegeText() !=null){
-                    messageEncontrado.get().setMessegeText(message.getMessegeText());
+                if(message.getMessageText() !=null){
+                    messageEncontrado.get().setMessageText(message.getMessageText());
                 }
                 
                 return messageReposytory.save(messageEncontrado.get());

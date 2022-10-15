@@ -25,7 +25,7 @@ public class ReservationRepository {
 
     }
 
-    public Optional<Reservation> getReservation(int id){
+    public Optional<Reservation> getIdReservation(int id){
         return reservationCrudRepository.findById(id);
     }
 

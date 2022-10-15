@@ -15,7 +15,7 @@ public class Client {
     private Integer idClient;
 
     private String name;
-    private String correo;
+    private String email;
     private String password;
     private Integer age;
 
@@ -43,12 +43,12 @@ public class Client {
         this.name = name;
     }
 
-    public String getCorreo() {
-        return correo;
+    public String getEmail() {
+        return email;
     }
 
-    public void setCorreo(String correo) {
-        this.correo = correo;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getPassword() {
@@ -83,6 +83,7 @@ public class Client {
         this.messages = messages;
     }
 
+    
     
        
 

@@ -26,8 +26,8 @@ public class Partyroom {
     private String description;
 
     @ManyToOne
-    @JoinColumn(name ="categoryId")
-    @JsonIgnoreProperties("partyroom")
+    @JoinColumn(name ="category")
+    @JsonIgnoreProperties("partyrooms")
     private Category category;
 
     @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "partyroom")
